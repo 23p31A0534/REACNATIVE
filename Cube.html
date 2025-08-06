@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>3D Cube</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100svh;
+      background-color: black;
+      perspective: 800px; 
+    }
+
+    .cube {
+      width: 200px;
+      height: 200px;
+      position: relative;
+      transform-style: preserve-3d;
+      animation: spin 5s linear infinite;
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotateX(0deg) rotateY(0deg);
+      }
+      100% {
+        transform: rotateX(360deg) rotateY(360deg);
+      }
+    }
+
+    .face {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      display: grid;
+      grid-template-rows: repeat(3, 1fr);
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .left    { transform: rotateY(90deg)  translateZ(100px); 
+      background-color: darkblue; }
+
+    .right   { transform: rotateY(-90deg) translateZ(100px); 
+      background-color: yellow; }
+    .top     { transform: rotateX(90deg)  translateZ(100px);
+       background-color: skyblue; }
+    .bottom  { transform: rotateX(-90deg) translateZ(100px);
+       background-color: green; }
+    .front   { transform: translateZ(100px);              
+        background-color: purple; }
+    .back    { transform: translateZ(-100px);              
+       background-color: red; } 
+
+    .cell {
+      border: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+  <div class="cube">
+    <div class="face left">   <div class="cell"></div><div class="cell"></div><div class="cell"></div>
+                              <div class="cell"></div><div class="cell"></div><div class="cell"></div>
+                              <div class="cell"></div><div class="cell"></div><div class="cell"></div>
+    </div>
+    <div class="face right">  <div class="cell"></div><div class="cell"></div><div class="cell"></div>
+                              <div class="cell"></div><div class="cell"></div><div class="cell"></div>
+                              <div class="cell"></div><div class="cell"></div><div class="cell"></div>
+    </div>
+    <div class="face top">    <div class="cell"></div><div class="cell"></div><div class="cell"></div>
+                              <div class="cell"></div><div class="cell"></div><div class="cell"></div>
+                              <div class="cell"></div><div class="cell"></div><div class="cell"></div>
+    </div>
+    <div class="face bottom"> <div class="cell"></div><div class="cell"></div><div class="cell"></div>
+                              <div class="cell"></div><div class="cell"></div><div class="cell"></div>
+                              <div class="cell"></div><div class="cell"></div><div class="cell"></div>
+    </div>
+    <div class="face front">  <div class="cell"></div><div class="cell"></div><div class="cell"></div>
+                              <div class="cell"></div><div class="cell"></div><div class="cell"></div>
+                              <div class="cell"></div><div class="cell"></div><div class="cell"></div>
+    </div>
+    <div class="face back">   <div class="cell"></div><div class="cell"></div><div class="cell"></div>
+                              <div class="cell"></div><div class="cell"></div><div class="cell"></div>
+                              <div class="cell"></div><div class="cell"></div><div class="cell"></div>
+    </div>
+  </div>
+</body>
+</html>
